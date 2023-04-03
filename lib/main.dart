@@ -39,6 +39,8 @@ class _MyHomePageState extends State<MyHomePage> {
     return Container(
         color: Colors.white,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Image.asset('images/crabs2.png'),
             Image.asset('images/diceroll.gif'),
