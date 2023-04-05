@@ -1,39 +1,69 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
-import "dart:math";
 
-
-class DicePage extends StatefulWidget {
-  const DicePage({super.key});
-
-  @override
-  State<DicePage> createState() => _DicePage();
+void main() {
+  return runApp(
+    MaterialApp(
+      home: Scaffold(
+        backgroundColor: Colors.red,
+        appBar: AppBar(
+          title: Text('Dice'),
+          backgroundColor: Colors.red,
+        ),
+        body: DicePage(),
+      ),
+    ),
+  );
 }
 
-class _DicePage extends State<DicePage> {
-  int leftDiceNumber = 1;
-  int rightDiceNumber = 1;
+class DicePage extends StatefulWidget {
+  @override
+  DicePageState createState() => DicePageState();
+}
 
+class DicePageState extends State<DicePage> {
+  int rightDiceNumber = 1;
+  int leftDiceNumber = 1;
   @override
   Widget build(BuildContext context) {
-    return Row(children: <Widget>[
-      Expanded(
-        child: TextButton(
+    return Center(
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Expanded(
+                child: TextButton(
+                  onPressed: () {
+                    setState(() {});
+                  },
+                  child: Image.asset('images/dice$leftDiceNumber.png'),
+                ),
+              ),
+              Expanded(
+                child: TextButton(
+                  onPressed: () {
+                    setState(() {});
+                  },
+                  child: Image.asset('images/dice$rightDiceNumber.png'),
+                ),
+              ),
+
+            ],
+          ),
+                    Expanded(
+              child: TextButton(
             onPressed: () {
               setState(() {
-                leftDiceNumber = Random().nextInt(5) + 1;
+                rightDiceNumber = Random().nextInt(6) + 1;
+                leftDiceNumber = Random().nextInt(6) + 1;
               });
             },
-            child: Image.asset("images/dice$leftDiceNumber.png")),
+            child: Image.asset('images/Red_button.png'),
+          )),
+        ],
       ),
-      Expanded(
-        child: TextButton(
-            onPressed: () {
-              setState(() {
-                rightDiceNumber = Random().nextInt(5) + 1;
-              });
-            },
-            child: Image.asset("images/dice$rightDiceNumber.png")),
-      ),
-    ]);
+    );
   }
 }

@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import "dice.dart";
+import "betting.dart";
 
 void main() {
   runApp(MyApp());
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Splash Screen',
       theme: ThemeData(
-        primarySwatch: Colors.yellow,
+        primarySwatch: Colors.red,
       ),
       home: MyHomePage(),
       debugShowCheckedModeBanner: false,
@@ -42,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Image.asset('images/crabs2.png'),
+            Image.asset('images/crabs betting.jpg'),
             Image.asset('images/diceroll.gif'),
           ],
         ));
@@ -53,12 +55,17 @@ class SecondScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Craps Project")),
-      body: Center(
-          child: Text(
-        "Home page",
-        textScaleFactor: 2,
-      )),
+      appBar: AppBar(title: Text("Crappy Craps Crab Betting")),
+      body:  Center(
+          child: Container(
+            decoration: BoxDecoration(color: Colors.red,),
+            child:Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Flexible(flex:3,child:DicePage()),
+              Flexible(child:Betting()),
+            ],
+          ))),
     );
   }
 }
