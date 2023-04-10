@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     Timer(
-        Duration(seconds: 8),
+        const Duration(seconds: 8),
         () => Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => SecondScreen())));
   }
@@ -40,13 +40,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Container(
         color: Colors.white,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Image.asset('images/crabs betting.jpg'),
-            Image.asset('images/diceroll.gif'),
-          ],
+        child: SizedBox.shrink(
+          child: Column(
+            children: [
+              Flexible(flex: 2, child: Image.asset('images/crabs betting.jpg')),
+              Flexible(child: Image.asset('images/diceroll.gif')),
+            ],
+          ),
         ));
   }
 }
@@ -55,17 +55,23 @@ class SecondScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Crappy Craps Crab Betting")),
-      body:  Center(
-          child: Container(
-            decoration: BoxDecoration(color: Colors.red,),
-            child:Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Flexible(flex:3,child:DicePage()),
-              Flexible(child:Betting()),
-            ],
-          ))),
+      backgroundColor: Colors.red,
+      appBar: AppBar(title: const Text("Crappy Craps Crab Betting")),
+      body: 
+  SizedBox.expand(
+
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Flexible(flex: 3, child: DicePage()),
+                      Flexible(child: Betting()),
+                    ],
+                  ),
+    ),
+  
+            
+          
     );
   }
 }

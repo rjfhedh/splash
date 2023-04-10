@@ -15,25 +15,21 @@ class _BettingState extends State<Betting> {
         padding: EdgeInsets.only(bottom: 50),
         child: Row(
           children: [
-            Flexible(
-              child: Container(
-                  height: double.infinity,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(20)),
-                      color: Colors.white,
-                      border: Border.all(color: Colors.black, width: 2)),
-                  child:
-                      Center(child: TextButton(child: Text("V", style: TextStyle(fontSize: 30)),
-                      onPressed: () => {}
-                      ,
-                      ))),
-            ),
-            Flexible(
+            Expanded(
+                child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(20)),
+                  color: Colors.white,
+                  border: Border.all(color: Colors.black, width: 2)),
+              child: Center(
+                  child: TextButton(
+                child: Text("V", style: TextStyle(fontSize: 30)),
+                onPressed: () => {},
+              )),
+            )),
+            Expanded(
                 flex: 2,
                 child: Container(
-                  height: double.infinity,
-                  width: double.infinity,
                   decoration: BoxDecoration(
                       borderRadius: const BorderRadius.all(Radius.circular(20)),
                       color: Colors.cyan,
@@ -42,19 +38,17 @@ class _BettingState extends State<Betting> {
                     child: Text("\$$bet", style: TextStyle(fontSize: 30)),
                   ),
                 )),
-             Flexible(
+            Expanded(
               child: Container(
-                  height: double.infinity,
-                  width: double.infinity,
                   decoration: BoxDecoration(
                       borderRadius: const BorderRadius.all(Radius.circular(20)),
                       color: Colors.white,
                       border: Border.all(color: Colors.black, width: 2)),
-                  child:
-                      Center(child: TextButton(child: Text("V", style: TextStyle(fontSize: 30)),
-                      onPressed: () => {}
-                      ,
-                      ))),
+                  child: Center(
+                      child: TextButton(
+                    child: Text("V", style: TextStyle(fontSize: 30)),
+                    onPressed: () => {},
+                  ))),
             ),
           ],
         ));

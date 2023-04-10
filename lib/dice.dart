@@ -1,20 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-void main() {
-  return runApp(
-    MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.red,
-        appBar: AppBar(
-          title: Text('Dice'),
-          backgroundColor: Colors.red,
-        ),
-        body: DicePage(),
-      ),
-    ),
-  );
-}
 
 class DicePage extends StatefulWidget {
   @override
